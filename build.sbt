@@ -1,10 +1,14 @@
+import _root_.bintray.Keys._
+import _root_.bintray.Plugin._
+import _root_.sbtrelease.ReleasePlugin._
+
 sbtPlugin := true
 
 name := "sbt-buildinfo"
 
-organization := "com.eed3si9n"
+organization := "com.yetu"
 
-version := "0.3.3"
+version := "0.3.3-yetu"
 
 // sbtVersion in Global := "0.13.0" 
 
@@ -26,13 +30,21 @@ publishArtifact in (Compile, packageSrc) := true
 
 publishMavenStyle := false
 
-publishTo := {
-  val repoId = if (isSnapshot.value) "snapshots" else "releases"
-  Some(Resolver.sbtPluginRepo(repoId))
-}
+crossScalaVersions := Seq("2.10.4", "2.11.5")
 
-credentials += Credentials(Path.userHome / ".ivy2" / ".sbtcredentials")
+// sbt-release plugin settings:
+releaseSettings
 
-lsSettings
+publishArtifact in (Test, packageBin) := true
 
-LsKeys.tags in LsKeys.lsync := Seq("sbt", "codegen")
+// settings for bintray publishing
+
+bintrayPublishSettings
+
+repository in bintray := "maven"
+
+licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
+
+packageLabels in bintray := Seq("yetu")
+
+bintrayOrganization in bintray := Some("yetu")
