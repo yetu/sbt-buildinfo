@@ -30,8 +30,6 @@ publishArtifact in (Compile, packageSrc) := true
 
 publishMavenStyle := false
 
-crossScalaVersions := Seq("2.10.4", "2.11.5")
-
 // sbt-release plugin settings:
 releaseSettings
 
