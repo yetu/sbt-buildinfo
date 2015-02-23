@@ -18,8 +18,6 @@ scalacOptions := Seq("-unchecked", "-deprecation")
 
 description := "sbt plugin to generate build info"
 
-licenses := Seq("MIT License" -> url("https://github.com/sbt/sbt-buildinfo/blob/master/LICENSE"))
-
 publishArtifact in (Compile, packageBin) := true
 
 publishArtifact in (Test, packageBin) := false
@@ -28,12 +26,10 @@ publishArtifact in (Compile, packageDoc) := true
 
 publishArtifact in (Compile, packageSrc) := true
 
-publishMavenStyle := false
+publishMavenStyle := true
 
 // sbt-release plugin settings:
 releaseSettings
-
-publishArtifact in (Test, packageBin) := true
 
 // settings for bintray publishing
 
