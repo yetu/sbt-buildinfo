@@ -8,7 +8,7 @@ name := "sbt-buildinfo"
 
 organization := "com.yetu"
 
-version := "0.3.3-yetu"
+version := "0.3.5"
 
 // sbtVersion in Global := "0.13.0" 
 
@@ -26,19 +26,23 @@ publishArtifact in (Compile, packageDoc) := true
 
 publishArtifact in (Compile, packageSrc) := true
 
-publishMavenStyle := true
-
-// sbt-release plugin settings:
-releaseSettings
 
 // settings for bintray publishing
 
 bintrayPublishSettings
-
-repository in bintray := "maven"
 
 licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
 
 packageLabels in bintray := Seq("yetu")
 
 bintrayOrganization in bintray := Some("yetu")
+
+publishMavenStyle := false
+
+bintrayPublishSettings
+
+repository in bintray := "sbt-plugins"
+
+// This is an example.  bintray-sbt requires licenses to be specified
+// (using a canonical name).
+licenses += ("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0.html"))
