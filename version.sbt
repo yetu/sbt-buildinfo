@@ -1,1 +1,1 @@
-version in ThisBuild := "0.3.4-yetu"
+version in ThisBuild := "0.3.5-SNAPSHOT"
